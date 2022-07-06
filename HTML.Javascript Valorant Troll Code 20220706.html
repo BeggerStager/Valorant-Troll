@@ -1,0 +1,263 @@
+<html>
+<!-- 
+	Ctrl + A to select all
+	Ctrl + C to copy
+	Ctrl + V to paste
+-->
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body onload="rollAll();">
+	<button onclick="rollAll()"> >>> Roll All <<< </button>
+	
+	<br>
+	
+	<p1>Agent: </p1> 			
+	<div align="center"; id="sameline">	
+		<p1 id="agent">Agent Here</p2>
+	</div>
+	<div>
+	<button onclick="rollAgent()"> >>> Roll Agent <<< </button>
+	<button onclick="rollAgentRole('controller')"> >>> Roll Controller <<< </button>
+	<button onclick="rollAgentRole('duelist')"> >>> Roll Duelist <<< </button>
+	<button onclick="rollAgentRole('initiator')"> >>> Roll Initiator <<< </button>
+	<button onclick="rollAgentRole('sentinel')"> >>> Roll Sentinel <<< </button>
+	</div>
+	
+	<p1>Primary Weapon: </p1>
+	<div align="center"; id="sameline">	
+		<p1 id="primaryWeapon">Primary Weapon Here</p2>
+	</div>
+	<div>
+	<button onclick="rollPrimaryWeapon()"> >>> Roll Primary Weapon <<< </button>
+	</div>
+	
+	<p1>Secondary Weapon: </p1>
+	<div align="center"; id="sameline">	
+		<p1 id="secondaryWeapon">Primary Weapon Here</p2>
+	</div>
+	<div>
+		<button onclick="rollSecondaryWeapon()"> >>> Roll Secondary Weapon <<< </button>
+	</div>
+	
+	<p1>Challenge: </p1>
+	<div id="sameline">	
+		<p1 id="challenge">Challenge Here</p2>
+	</div>
+	<div>
+		<button onclick="rollChallenge()"> >>> Roll Challenge <<< </button>
+	</div>
+
+</body>
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+
+// Header shit above, ignore
+
+// Update notes: 
+/*	// Start of block comment -----------------------------------------
+
+// THE UPDATE LOG:
+2022JULY06: Reusing old code to do a valorant troll
+To do list:
+- (COMPLETE) Random agent roll
+- (COMPLETE) Random primary weapon roll
+- (COMPLETE) Random secondary weapon roll
+- (INCOMPLETE) Random challenge	
++ ADS only
++ Crouch only
++ Walk only
++ Run only
++ W, A, D only
+Valorant wiki: https://valorant.fandom.com/wiki/VALORANT_Wiki
+
+// Links to remember or something
+Original Doc - https://docs.google.com/document/d/1CNZrh8htXGAzVMkInBIX5alQ6m8ch_NaplQpue6sFBE/edit#
+Wix Site Editor - https://editor.wix.com/html/editor/web/renderer/edit/774d9b13-7da3-46cc-890c-2a554854ee76?metaSiteId=e64a6c50-afd0-4f9f-91ed-a53672017434&editorSessionId=a5fa4884-84bb-4bc2-b9c4-8189a523b438&referralInfo=dashboard
+Second page - https://docs.google.com/document/d/1cUiD1xixfFgkQLvDSoITBokhZmR6jpOg_3SF_Yz6e7Y/edit#
+Smite item list - https://docs.google.com/document/d/1RO7QHRorAPdNnJsH_WBsrsHt4wA-91SMsR0xlTuYS7Y/edit#
+An online try it editor - https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/	// End of block comment -----------------------------------------------------------------------------------------------------------------------------
+
+// Helpful notes
+// Math.random();
+// *****.length
+// Math.floor();
+// CANNOT USE class AS A VARIABLE
+// document.getElementById("") = "";
+// Creating a new array... you need to capitalize A in Array
+
+// Roll Agent function
+function rollAgent() {
+	var agent = new Array();	// Creates a new array for all the agents
+	agent[0] = "Astra";
+	agent[1] = "Breach";
+	agent[2] = "Brimstone";
+	agent[3] = "Chamber";
+	agent[4] = "Cypher";
+	agent[5] = "Fade";
+	agent[6] = "Jett";
+	agent[7] = "KAY/O";
+	agent[8] = "Killjoy";
+	agent[9] = "Neon";
+	agent[10] = "Omen";
+	agent[11] = "Phoenix";
+	agent[12] = "Raze";
+	agent[13] = "Reyna‎‎";
+	agent[14] = "Sage";
+	agent[15] = "Skye";
+	agent[16] = "Sova";
+	agent[17] = "Viper";
+	agent[18] = "Yoru";
+	
+	// Math functionality shit
+	var i = Math.floor(agent.length * Math.random());
+	
+	// Output
+	document.getElementById("agent").innerHTML = agent[i];
+}
+
+function rollPrimaryWeapon() {
+	// Website: https://valorant.fandom.com/wiki/Weapons#Primary
+	
+	var item = new Array();	// Creates a new array
+	item[0] = "Stinger";
+	item[1] = "Spectre";
+	item[2] = "Bucky";
+	item[3] = "Judge";
+	item[4] = "Bulldog";
+	item[5] = "Guardian";
+	item[6] = "Phantom";
+	item[7] = "Vandal";
+	item[8] = "Marshal";
+	item[9] = "Operator";
+	item[10] = "Ares";
+	item[11] = "Odin";
+	
+	// Math functionality shit
+	var i = Math.floor(item.length * Math.random());
+	
+	// Output
+	document.getElementById("primaryWeapon").innerHTML = item[i];
+}
+
+function rollSecondaryWeapon() {
+	// Website: https://valorant.fandom.com/wiki/Weapons#Sidearms
+
+	var docID = "secondaryWeapon";
+	var item = new Array();	// Creates a new array
+	item[0] = "Classic";
+	item[1] = "Shorty";
+	item[2] = "Frenzy";
+	item[3] = "Ghost";
+	item[4] = "Sheriff";
+	
+	// Math functionality shit
+	var i = Math.floor(item.length * Math.random());
+	
+	// Output
+	document.getElementById(docID).innerHTML = item[i];
+}
+
+function rollChallenge() {
+	var docID = "challenge";
+	var item = new Array();	// Creates a new array
+	item[0] = "You cannot stop moving";
+	item[1] = "Normal play";
+	item[2] = "ADS only";	// Deva's idea
+	item[3] = "Play with sound muted";
+	item[4] = "You can only fire once then you must reload";
+	item[5] = "No retreat. You are not allowed to move backwards";
+	item[6] = "You must say opposite call outs";
+	item[7] = "Pick a spot pre-round and you cannot move until bomb is planted";
+	item[8] = "Knife only";
+	item[9] = "You cannot move from spawn until bomb is planted";
+	item[10] = "Primary weapon only";
+	
+	// Math functionality shit
+	var i = Math.floor(item.length * Math.random());
+	
+	// Output
+	document.getElementById(docID).innerHTML = item[i];
+}
+
+// Roll everything (Agent, Weapons, etc.)
+function rollAll() {
+	rollAgent();
+	rollPrimaryWeapon();
+	rollSecondaryWeapon();
+	rollChallenge();
+}
+
+// Roll an agent but user can define which role they want
+function rollAgentRole(role) {
+	// Website: https://valorant.fandom.com/wiki/Agents
+	var docID = "agent";
+	
+	if (role == "controller") {
+		// Controller
+		var agent = new Array();	// Creates a new array for all the agents
+		agent[0] = "Astra";
+		agent[1] = "Brimstone";
+		agent[2] = "Omen";
+		agent[3] = "Viper";
+	}
+	else if (role == "duelist") {
+		// Duelist
+		var agent = new Array();	// Creates a new array for all the agents
+		agent[0] = "Jett";
+		agent[1] = "Neon";
+		agent[2] = "Phoenix";
+		agent[3] = "Raze";
+		agent[4] = "Reyna‎‎";
+		agent[5] = "Yoru";
+	}
+	
+	else if (role == "initiator") {
+		// Initiator
+		var agent = new Array();	// Creates a new array for all the agents
+		agent[0] = "Breach";
+		agent[1] = "Fade";
+		agent[2] = "KAY/O";
+		agent[3] = "Skye";
+		agent[4] = "Sova";
+	}
+	
+	else if (role == "sentinel") {
+		// Sentinel
+		var agent = new Array();	// Creates a new array for all the agents
+		agent[0] = "Chamber";
+		agent[1] = "Cypher";
+		agent[2] = "Killjoy";
+		agent[3] = "Sage";
+	}
+	
+	// Math functionality shit
+	var i = Math.floor(agent.length * Math.random());
+	
+	// Output
+	document.getElementById(docID).innerHTML = agent[i];
+}
+
+</script>
+
+<style type="text/css">
+body {
+	font-family: 'Noto Sans', sans-serif;
+}
+p1 {
+    font-size: 25px;
+}
+#sameline {
+	display:inline-block;
+}
+</style>
+
+</html>
