@@ -1,5 +1,7 @@
 <html>
 <!-- 
+	GITHUB: https://github.com/BeggerStager/Valorant-Troll
+	
 	Ctrl + A to select all
 	Ctrl + C to copy
 	Ctrl + V to paste
@@ -44,9 +46,19 @@
 		<button onclick="rollSecondaryWeapon()"> >>> Roll Secondary Weapon <<< </button>
 	</div>
 	
-	<p1>Challenge: </p1>
-	<div id="sameline">	
-		<p1 id="challenge">Challenge Here</p2>
+	<div>
+		<p1>Challenge 1: </p1>
+		<p1 id="challenge1">Challenge Here</p2>
+	</div>
+	
+	<div>	
+		<p1>Challenge 2: </p1>
+		<p1 id="challenge2">Challenge Here</p2>
+	</div>
+	
+	<div>	
+		<p1>Challenge 3: </p1>
+		<p1 id="challenge3">Challenge Here</p2>
 	</div>
 	<div>
 		<button onclick="rollChallenge()"> >>> Roll Challenge <<< </button>
@@ -68,12 +80,13 @@ To do list:
 - (COMPLETE) Random agent roll
 - (COMPLETE) Random primary weapon roll
 - (COMPLETE) Random secondary weapon roll
-- (INCOMPLETE) Random challenge	
+- (COMPLETE) Random challenge	
 + ADS only
 + Crouch only
 + Walk only
 + Run only
 + W, A, D only
+- (INCOMPLETE) Incorporate Valorant API https://valorant-api.com/
 Valorant wiki: https://valorant.fandom.com/wiki/VALORANT_Wiki
 
 // Links to remember or something
@@ -167,11 +180,11 @@ function rollSecondaryWeapon() {
 }
 
 function rollChallenge() {
-	var docID = "challenge";
+	var docID = "challenge1";
 	var item = new Array();	// Creates a new array
 	item[0] = "You cannot stop moving";
 	item[1] = "Normal play";
-	item[2] = "ADS only";	// Deva's idea
+	item[2] = "ADS only the whole round";	// Deva's idea + Kevie
 	item[3] = "Play with sound muted";
 	item[4] = "You can only fire once then you must reload";
 	item[5] = "No retreat. You are not allowed to move backwards";
@@ -180,6 +193,17 @@ function rollChallenge() {
 	item[8] = "Knife only";
 	item[9] = "You cannot move from spawn until bomb is planted";
 	item[10] = "Primary weapon only";
+	item[11] = "You must do a 360 before firing";	// Emkay (Albert)
+	item[12] = "Play with no crosshair";	// Hoshi
+	item[13] = "Play with huge crosshair (biggest center dot)";	// Hoshi
+	item[14] = "You can only jump shoot";	// Hoshi
+	item[15] = "Drop your gun and pick it back up before shooting";	// Hoshi
+	item[16] = "Use one damaging ability on your teammate";	// Kevie
+	item[17] = "Blind a teammate";	// Kevie
+	item[18] = "Play music the whole round";	// Kevie
+	item[19] = "Play using only your computer speakers";	// Kevie
+	item[20] = "Shoot a bullet every 10 seconds";	// Bounced off of Kevie's idea
+	
 	
 	// Math functionality shit
 	var i = Math.floor(item.length * Math.random());
