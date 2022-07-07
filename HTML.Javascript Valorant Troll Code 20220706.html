@@ -50,10 +50,16 @@
 		<p1>Challenge 1: </p1>
 		<p1 id="challenge1">Challenge Here</p2>
 	</div>
+	<div>
+		<button onclick="rollChallenge('challenge1')"> >>> Roll Challenge <<< </button>
+	</div>
 	
 	<div>	
 		<p1>Challenge 2: </p1>
 		<p1 id="challenge2">Challenge Here</p2>
+	</div>
+	<div>
+		<button onclick="rollChallenge('challenge2')"> >>> Roll Challenge <<< </button>
 	</div>
 	
 	<div>	
@@ -61,7 +67,7 @@
 		<p1 id="challenge3">Challenge Here</p2>
 	</div>
 	<div>
-		<button onclick="rollChallenge()"> >>> Roll Challenge <<< </button>
+		<button onclick="rollChallenge('challenge3')"> >>> Roll Challenge <<< </button>
 	</div>
 
 </body>
@@ -179,37 +185,37 @@ function rollSecondaryWeapon() {
 	document.getElementById(docID).innerHTML = item[i];
 }
 
-function rollChallenge() {
-	var docID = "challenge1";
-	var item = new Array();	// Creates a new array
-	item[0] = "You cannot stop moving";
-	item[1] = "Normal play";
-	item[2] = "ADS only the whole round";	// Deva's idea + Kevie
-	item[3] = "Play with sound muted";
-	item[4] = "You can only fire once then you must reload";
-	item[5] = "No retreat. You are not allowed to move backwards";
-	item[6] = "You must say opposite call outs";
-	item[7] = "Pick a spot pre-round and you cannot move until bomb is planted";
-	item[8] = "Knife only";
-	item[9] = "You cannot move from spawn until bomb is planted";
-	item[10] = "Primary weapon only";
-	item[11] = "You must do a 360 before firing";	// Emkay (Albert)
-	item[12] = "Play with no crosshair";	// Hoshi
-	item[13] = "Play with huge crosshair (biggest center dot)";	// Hoshi
-	item[14] = "You can only jump shoot";	// Hoshi
-	item[15] = "Drop your gun and pick it back up before shooting";	// Hoshi
-	item[16] = "Use one damaging ability on your teammate";	// Kevie
-	item[17] = "Blind a teammate";	// Kevie
-	item[18] = "Play music the whole round";	// Kevie
-	item[19] = "Play using only your computer speakers";	// Kevie
-	item[20] = "Shoot a bullet every 10 seconds";	// Bounced off of Kevie's idea
-	
-	
+// Challenge Array list
+var challenge = new Array();	// Creates a new array
+	challenge[0] = "You cannot stop moving";
+	challenge[1] = "Normal play";
+	challenge[2] = "ADS only the whole round";	// Deva's idea + Kevie
+	challenge[3] = "Play with sound muted";
+	challenge[4] = "You can only fire once then you must reload";
+	challenge[5] = "No retreat. You are not allowed to move backwards";
+	challenge[6] = "You must say opposite call outs";
+	challenge[7] = "Pick a spot pre-round and you cannot move until bomb is planted";
+	challenge[8] = "Knife only";
+	challenge[9] = "You cannot move from spawn until bomb is planted";
+	challenge[10] = "Primary weapon only";
+	challenge[11] = "You must do a 360 before firing";	// Emkay (Alfred)
+	challenge[12] = "Play with no crosshair";	// Hoshi
+	challenge[13] = "Play with huge crosshair (biggest center dot)";	// Hoshi
+	challenge[14] = "You can only jump shoot";	// Hoshi
+	challenge[15] = "Drop your gun and pick it back up before shooting";	// Hoshi
+	challenge[16] = "Use one damaging ability on your teammate";	// Kevie
+	challenge[17] = "Blind a teammate";	// Kevie
+	challenge[18] = "Play music the whole round";	// Kevie
+	challenge[19] = "Play using only your computer speakers";	// Kevie
+	challenge[20] = "Shoot a bullet every 10 seconds";	// Bounced off of Kevie's idea
+
+// Creates a new challenge from the challenge array list
+function rollChallenge(docID) {
 	// Math functionality shit
-	var i = Math.floor(item.length * Math.random());
+	var i = Math.floor(challenge.length * Math.random());
 	
 	// Output
-	document.getElementById(docID).innerHTML = item[i];
+	document.getElementById(docID).innerHTML = challenge[i];
 }
 
 // Roll everything (Agent, Weapons, etc.)
@@ -217,7 +223,9 @@ function rollAll() {
 	rollAgent();
 	rollPrimaryWeapon();
 	rollSecondaryWeapon();
-	rollChallenge();
+	rollChallenge('challenge1');
+	rollChallenge('challenge2');
+	rollChallenge('challenge3');
 }
 
 // Roll an agent but user can define which role they want
